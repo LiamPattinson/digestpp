@@ -10,7 +10,7 @@ Tested with g++ 6.4.0, clang 4.0.1 and Visual C++ 2017.
 As a header only library, it is sufficient to to add the directory `./include` to your
 includes path.
 
-The library can also be built using Cmake:
+The library can also be built using CMake:
 
 ```bash
 $ cmake -B build
@@ -23,7 +23,7 @@ It can be installed as a system library using:
 $ sudo cmake --build build --target install
 ```
 
-The library will then be findable by other Cmake projects using
+The library will then be findable by other CMake projects using
 `find_package(digestpp)`. Tests can be run using:
 
 ```bash

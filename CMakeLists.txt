@@ -11,7 +11,7 @@ project(
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 
-option(DIGESTPP_BUILD_TESTS "Build tests" ON)
+option(DIGESTPP_BUILD_TESTS "Build tests" OFF)
 
 # windows.h will conflict with min functions in digestcpp
 # Because of macro definitions of min and max
@@ -48,7 +48,7 @@ install(
 )
 
 # Install this project's include dir, so projects importing it can access it
-install(DIRECTORY ${digestpp_SOURCE_DIR}include DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+install(DIRECTORY ./include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 # Create files that allow installed project to be discovered using find_package
 configure_package_config_file(
@@ -74,7 +74,9 @@ install(
 
 # Configure the .in pkg-config file and install
 CONFIGURE_FILE(
-    ${PROJECT_SOURCE_DIR}/cmake/digestpp.pc.in ${PROJECT_BINARY_DIR}/digestpp.pc @ONLY
+    "${PROJECT_SOURCE_DIR}/cmake/digestpp.pc.in"
+    "${PROJECT_BINARY_DIR}/digestpp.pc"
+    @ONLY
 )
 
 INSTALL(
