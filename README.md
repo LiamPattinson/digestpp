@@ -5,6 +5,32 @@ Derived from cppcrypto in an attempt to devise a more modern yet flexible and un
 
 Tested with g++ 6.4.0, clang 4.0.1 and Visual C++ 2017.
 
+## Installation
+
+As a header only library, it is sufficient to to add the directory `./include` to your
+includes path.
+
+The library can also be built using Cmake:
+
+```bash
+$ cmake -B build
+$ cmake --build build
+```
+
+It can be installed as a system library using:
+
+```bash
+$ sudo cmake --build build --target install
+```
+
+The library will then be findable by other Cmake projects using
+`find_package(digestpp)`. Tests can be run using:
+
+```bash
+$ cmake -B build -DDIGESTPP_BUILD_TESTS=ON
+$ cmake --build build --target tests
+```
+
 ## Examples
 Calculate BLAKE2b digest from a double quoted string and output it in hex format:
 ````C++
