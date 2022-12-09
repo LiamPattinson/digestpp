@@ -13,15 +13,6 @@ include(CMakePackageConfigHelpers)
 
 option(DIGESTPP_BUILD_TESTS "Build tests" OFF)
 
-# windows.h will conflict with min functions in digestcpp
-# Because of macro definitions of min and max
-# So tell the compiler to exclude min and max macros in windows
-if(WIN32)
-    add_definitions(-DNOMINMAX)
-    add_definitions(-DNOGDI)
-endif()
-
-
 add_library(digestpp INTERFACE)
 add_library(digestpp::digestpp ALIAS digestpp)
 target_include_directories(
