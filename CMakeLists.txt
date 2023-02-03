@@ -24,11 +24,7 @@ target_include_directories(
 
 # Set rules for installing targets
 set(digestpp_targets digestpp)
-install(TARGETS ${digestpp_targets}
-        EXPORT digestppTargets
-        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-        INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
-)
+install(TARGETS ${digestpp_targets} EXPORT digestppTargets)
 
 # Install export file, which contains code to allow other projects to import this project
 install(
